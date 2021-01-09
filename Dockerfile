@@ -18,7 +18,6 @@ FROM scratch
 COPY --from=build /build/keepalived_exporter /keepalived_exporter
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
-USER 65534
 EXPOSE 9650
 
 ENTRYPOINT ["/keepalived_exporter"]
