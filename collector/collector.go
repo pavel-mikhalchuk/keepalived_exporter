@@ -287,6 +287,7 @@ func (k *KACollector) signal(sig syscall.Signal) error {
 
 	err = proc.Signal(sig)
 	if err != nil {
+		fmt.Errorf("!!! signal %v: %v", sig, err)
 		return fmt.Errorf("signal %v: %v", sig, err)
 	}
 
