@@ -281,13 +281,8 @@ func (k *KACollector) signal(sig syscall.Signal) error {
 		return fmt.Errorf("process %v: %v", pid, err)
 	}
 	
-	fmt.Println(pid)
-	fmt.Println(proc)
-	fmt.Println(sig)
-
 	err = proc.Signal(sig)
 	if err != nil {
-		fmt.Errorf("!!! signal %v: %v", sig, err)
 		return fmt.Errorf("signal %v: %v", sig, err)
 	}
 
