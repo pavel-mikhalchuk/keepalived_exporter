@@ -216,7 +216,8 @@ func (k *KACollector) Collect(ch chan<- prometheus.Metric) {
 
 	for _, s := range svcs {
 		
-		fmt.Println("S: " + s)
+		fmt.Println("S")
+		fmt.Println(s)
 		
 		dsts, err := k.handle.GetDestinations(s)
 		if err != nil {
@@ -240,7 +241,8 @@ func (k *KACollector) Collect(ch chan<- prometheus.Metric) {
 
 		for _, d := range dsts {
 			
-			fmt.Println("D: " + d)
+			fmt.Println("D")
+			fmt.Println(d)
 			
 			addr := d.Address.String() + ":" + strconv.Itoa(int(d.Port))
 
