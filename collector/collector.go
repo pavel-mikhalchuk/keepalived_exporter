@@ -215,6 +215,9 @@ func (k *KACollector) Collect(ch chan<- prometheus.Metric) {
 	}
 
 	for _, s := range svcs {
+		
+		fmt.Println("S: " + s)
+		
 		dsts, err := k.handle.GetDestinations(s)
 		if err != nil {
 			log.Printf("keepalived_exporter: destinations: %v", err)
@@ -236,6 +239,9 @@ func (k *KACollector) Collect(ch chan<- prometheus.Metric) {
 			float64(s.Stats.Connections), addr, proto)
 
 		for _, d := range dsts {
+			
+			fmt.Println("D: " + d)
+			
 			addr := d.Address.String() + ":" + strconv.Itoa(int(d.Port))
 
 			ch <- prometheus.MustNewConstMetric(k.metrics["keepalived_lvs_rs_in_packets"], prometheus.CounterValue,
