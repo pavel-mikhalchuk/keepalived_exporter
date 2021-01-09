@@ -11,7 +11,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"github.com/gen2brain/keepalived_exporter/collector"
+	"github.com/pavel-mikhalchuk/keepalived_exporter/collector"
 )
 
 var version, commit, date string
