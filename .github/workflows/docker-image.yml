@@ -11,6 +11,6 @@ jobs:
       - name: Login to DockerHub Registry
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Build the latest Docker image
-        run: docker build . --file Dockerfile --tag pavelmikhalchuk/keepalived_exporter:latest
+        run: docker build . --file Dockerfile --tag pavelmikhalchuk/keepalived_exporter:$(git rev-parse --short "$GITHUB_SHA")
       - name: Push the latest Docker image
         run: docker push pavelmikhalchuk/keepalived_exporter:latest
